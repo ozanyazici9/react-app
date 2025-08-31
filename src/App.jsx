@@ -17,6 +17,18 @@ export default function App() {
   const [watchListMovies, setWatchListMovies] = useState([]);
   const [isWatchListOpen, setIsWatchListOpen] = useState(false);
 
+  function handleAddToWatchList(movie) {
+    const isAddedToList = watchListMovies.map((m) => m.id).includes(movie.id);
+
+    if (!isAddedToList) {
+      setWatchListMovies((prev) => [...prev, movie]);
+    }
+  }
+
+  function handleRemoveFromWatchList(movie) {
+    setWatchListMovies((prev) => prev.filter((m) => m.id !== movie.id));
+  }
+
   return (
     <>
       <Header>
@@ -28,10 +40,14 @@ export default function App() {
         />
       </Header>
       <Main>
-        <WatchList movies={watchListMovies} isWatchListOpen={isWatchListOpen} />
-        <Movielist movies={movies} />
+        <WatchList
+          movies={watchListMovies}
+          isWatchListOpen={isWatchListOpen}
+          onRemoveWatchList={handleRemoveFromWatchList}
+        />
+        <Movielist movies={movies} onAddToList={handleAddToWatchList} />
       </Main>
-      />
+      /
       <Footer />
     </>
   );

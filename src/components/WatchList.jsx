@@ -1,6 +1,6 @@
-import Movie from "./Movie";
+import WatchListMovie from "./WatchListMovie";
 
-export default function WatchList( { movies, isWatchListOpen } ) {
+export default function WatchList( { movies, isWatchListOpen, onRemoveWatchList } ) {
   return (
     <>
     {
@@ -19,7 +19,7 @@ export default function WatchList( { movies, isWatchListOpen } ) {
                   className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4"
                 >
                   {movies.map((m, index) => (
-                    <Movie movieObj={m} key={index} />
+                    <WatchListMovie movieObj={m} key={index} onRemoveWatchList={onRemoveWatchList}/>
                   ))}
                 </div>
               )}

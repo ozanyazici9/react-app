@@ -1,5 +1,5 @@
 // const {movieObj, key} = props js de destructing
-export default function Movie({ movieObj, key, onAddToList }) {
+export default function WatchListMovie({ movieObj, key, onAddToList, onRemoveWatchList }) {
   return (
     <div className="col">
       {movieObj.is_active && (
@@ -15,9 +15,9 @@ export default function Movie({ movieObj, key, onAddToList }) {
             )}
             <button
               className="btn btn-link fs-5 text-danger position-absolute top-0 start-0"
-              onClick={() => onAddToList(movieObj)}
+              onClick={() => onRemoveWatchList(movieObj)}
             >
-              <i className="bi bi-plus-circle"></i>
+              <i className="bi bi-dash-circle"></i>
             </button>
           </div>
         </div>
