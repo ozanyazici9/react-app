@@ -3,7 +3,7 @@ import WatchList from "./WatchList";
 
 export default function Main( { children } ) {
     return (
-        <main>
+        <main className="container">
             {children}
         </main>
     );
