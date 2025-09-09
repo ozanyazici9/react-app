@@ -11,6 +11,7 @@ import Movielist from "./components/MovieList";
 import WatchList from "./components/WatchList";
 import Loading from "./components/Loading";
 import ErrorMessage from "./components/ErrorMessage";
+import MovieDetails from "./components/MovieDetails";
 
 const api_key = "b3c21e02f43b527c55dbf762b1f80973";
 const page = 1;
@@ -23,6 +24,8 @@ export default function App() {
   const [isWatchListOpen, setIsWatchListOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [searchQuery, setSearchQuery] = useState(query);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   // mounting => ilk render edilme anı.
   // re-render => state değiştiğinde yeniden render edilme anı.
@@ -33,18 +36,8 @@ export default function App() {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}&page=${page}&language=${language}`
+          `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchQuery}&page=${page}&language=${language}`
         );
-
-        if (response.status === 404) {
-          throw new Error("Film bulunamadı");
-        } else if (response.status === 401) {
-          throw new Error("Geçersiz API anahtarı");
-        } else if (response.status === 500) {
-          throw new Error("Sunucu hatası");
-        } else if (response.status === 503) {
-          throw new Error("Servis kullanılamıyor");
-        }
 
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -63,8 +56,14 @@ export default function App() {
       setLoading(false);
     }
 
+    if (searchQuery.length < 3) {
+      setMovies([]);
+      setError("");
+      return;
+    }
+
     getMovies();
-  }, []);
+  }, [searchQuery]);
 
   function handleAddToWatchList(movie) {
     const isAddedToList = watchListMovies.map((m) => m.id).includes(movie.id);
@@ -78,17 +77,28 @@ export default function App() {
     setWatchListMovies((prev) => prev.filter((m) => m.id !== movie.id));
   }
 
+  function handleSelectedMovie(movie) {
+    setSelectedMovie(movie);
+    window.scrollTo(0, 0);
+  }
+
   return (
     <>
       <Header>
         <Logo />
-        <SearchForm />
+        <SearchForm searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <WatchListButton
           movies={watchListMovies}
           onSetIsWatchListOpen={setIsWatchListOpen}
         />
       </Header>
       <Main>
+        {selectedMovie && (
+          <MovieDetails
+            movieObj={selectedMovie}
+            onClose={() => setSelectedMovie(null)}
+          />
+        )}
         <WatchList
           movies={watchListMovies}
           isWatchListOpen={isWatchListOpen}
@@ -97,7 +107,11 @@ export default function App() {
 
         {loading && <Loading />}
         {!loading && !error && (
-          <Movielist movies={movies} onAddToList={handleAddToWatchList} />
+          <Movielist
+            movies={movies}
+            onAddToList={handleAddToWatchList}
+            onSelectedMovie={handleSelectedMovie}
+          />
         )}
         {error && <ErrorMessage message={error} />}
       </Main>
