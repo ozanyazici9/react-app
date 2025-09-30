@@ -32,11 +32,6 @@ export default function Navbar() {
                 Movies
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/movie/1">
-                Movie Details
-              </NavLink>
-            </li>
           </ul>
         </div>
       </div>
