@@ -1,11 +1,11 @@
 import Movie from "./Movie";
 
-export default function Movielist({ movies, onAddToList, onSelectedMovie }) {
+export default function Movielist({ movies, title }) {
   return (
-    <div className="my-3">
+    <div className="container my-3">
       <div className="card">
         <div className="card-header">
-          <h2 className="title h5 mb-0">Movie List</h2>
+          <h2 className="title h5 mb-0">{title}</h2>
         </div>
         <div className="card-body">
           {movies.length == 0 ? (
@@ -19,8 +19,6 @@ export default function Movielist({ movies, onAddToList, onSelectedMovie }) {
                 <Movie
                   movieObj={m}
                   key={index}
-                  onAddToList={onAddToList}
-                  onSelectedMovie={onSelectedMovie}
                 />
               ))}
             </div>

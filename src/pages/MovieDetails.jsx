@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
+import SimilarMovies from "./SimilarMovies";
 
-const apiUrl = "https:api.themoviedb.org/3";
-const api_key = "b3c21e02f43b527c55dbf762b1f80973";
+const apiUrl = "https://api.themoviedb.org/3";
+const api_key = "c6b29038db5254e73f0febb766471d0a";
 const language = "tr-TR";
 
 export default function MovieDetails() {
@@ -49,7 +50,7 @@ export default function MovieDetails() {
       <div
         className="text-white position-relative"
         style={{
-          backgroundImage: `url(https:image.tmdb.org/t/p/original/${movie.backdrop_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -100,12 +101,37 @@ export default function MovieDetails() {
                     <span>{movie.credits.crew[1].name}</span>
                   </p>
                 </div>
-                
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div className="container my-3">
+        <div className="card">
+          <div className="card-header">
+            <h5 className="card-title">Kadro</h5>
+          </div>
+          <div className="card-body">
+            <div className="row">
+              {movie.credits.cast.slice(0, 12).map((actor) => (
+                <div className="col-md-2" key={actor.id}>
+                  <img
+                    src={
+                      "https://image.tmdb.org/t/p/original/" +
+                      actor.profile_path
+                    }
+                    alt={"actor.name"}
+                    className={"img-fluid"}
+                  />
+                  <p>{actor.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <SimilarMovies movieId={id}/>
     </>
   );
-}
+};

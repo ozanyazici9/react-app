@@ -9,7 +9,7 @@ const page = 1;
 const language = "tr-TR";
 
 
-export default function Movies() {
+export default function SimilarMovies({ movieId }) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -19,7 +19,7 @@ export default function Movies() {
       setLoading(true);
       try {
         const response = await fetch(
-          `${apiUrl}/movie/popular?api_key=${api_key}&page=${page}&language=${language}`
+          `${apiUrl}/movie/${movieId}/similar?api_key=${api_key}&page=${page}&language=${language}`
         );
 
         if (!response.ok) {
@@ -40,12 +40,13 @@ export default function Movies() {
     }
 
     getMovies();
-  }, []);
+  }, [movieId]);
 
   if(loading) return <Loading />
   if(error) return <ErrorMessage message={error} />
 
   return (
-    <Movielist movies={movies} title="Populer Movies" />
+    <Movielist movies={movies} title="Similar Movies" />
   );
-}
+};
+

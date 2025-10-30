@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Loading from "./Loading";
 
-const api_key = "b3c21e02f43b527c55dbf762b1f80973";
+const api_key = "c6b29038db5254e73f0febb766471d0a";
 const language = "tr-TR";
 
 export default function MovieDetails({ movieObj, onClose }) {
