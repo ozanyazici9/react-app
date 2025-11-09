@@ -1,12 +1,16 @@
 import { NavLink } from "react-router";
 import Logo from "./Logo";
 import SearchForm from "./SearchForm";
+import { ThemeContext } from "../contexts/ThemeContext";
+import { useContext } from "react";
 
 export default function Navbar() {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <nav
-      className="navbar navbar-expand-lg bg-dark border-bottom border-body"
-      data-bs-theme="dark"
+      className={`navbar navbar-expand-lg bg-${theme} border-bottom border-body`}
+      data-bs-theme={theme}
     >
       <div className="container">
         <Logo />
@@ -34,7 +38,7 @@ export default function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <SearchForm/>
+          <SearchForm />
         </div>
       </div>
     </nav>
