@@ -19,7 +19,7 @@ export default function SimilarMovies({ movieId }) {
       setLoading(true);
       try {
         const response = await fetch(
-          `${apiUrl}/movie/${movieId}/similar?api_key=${api_key}&page=${page}&language=${language}`
+          `${apiUrl}/movie/${movieId}/similar?api_key=${api_key}&page=${page}&language=${language}&adult=true`
         );
 
         if (!response.ok) {

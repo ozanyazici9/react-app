@@ -1,11 +1,26 @@
-import { NavLink } from "react-router";
+import SearchForm from "../components/SearchForm";
 import React from "react";
+import Movies from "./Movies";
 
 export default function Home() {
   return (
-      <div className="text-center" id="home">
-        <h1 className="display-1">Welcome to home page</h1>
-        <p className="lead">This is the homepage of my website.</p>
+    <>
+    <div id="home">
+      <div className="img-overlay">
+        <div className="container pt-5">
+          <div className="row">
+            <div className="col-12 col-lg-7 mx-auto text-center text-white">
+              <h1 className="display-2">Hoş Geldiniz!</h1>
+              <p className="lead">
+                Keşfedilecek milyonlarca film, TV şovu ve kişi. Şimdi keşfedin.
+              </p>
+              <SearchForm />
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <Movies/>
+    </>
   );
 }
