@@ -3,9 +3,10 @@ import Logo from "./Logo";
 import SearchForm from "./SearchForm";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { useContext } from "react";
+import ThemeSelector from "./ThemeSelector";
 
 export default function Navbar() {
-  const { theme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   return (
     <nav
@@ -39,6 +40,7 @@ export default function Navbar() {
             </li>
           </ul>
           <SearchForm />
+          <ThemeSelector />
         </div>
       </div>
     </nav>

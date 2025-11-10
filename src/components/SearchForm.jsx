@@ -18,8 +18,7 @@ export default function SearchForm() {
   }
 
   return (
-    <form className="d-flex mb-2 mb-lg-0 ms-auto" onSubmit={handleSubmit}
-      data-bs-theme={theme}>
+    <form className="d-flex mb-2 mb-lg-0 ms-auto" onSubmit={handleSubmit}>
       <input
         type="search"
         className="form-control me-1"

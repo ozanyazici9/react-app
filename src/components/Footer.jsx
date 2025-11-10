@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`bg-${theme} text-center text-${inverted} border-top border-body`}
+      className={`bg-${theme} text-center  border-top border-body`}
       data-bs-theme={theme}
     >
       <div className="container p-4">
