@@ -44,5 +44,5 @@ export default function Movies() {
   if (loading) return <Loading />;
   if (error) return <ErrorMessage message={error} />;
 
-  return <Movielist movies={movies} title="Populer Movies" />;
+  return <Movielist movies={movies} title={"Populer Filmler"}/>;
 }

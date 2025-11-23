@@ -6,7 +6,7 @@ import { useContext } from "react";
 import ThemeSelector from "./ThemeSelector";
 
 export default function Navbar() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <nav

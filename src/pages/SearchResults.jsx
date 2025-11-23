@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
-import Movielist from "../components/MovieList";
+import MovieList from "../components/MovieList";
 import { useSearchParams } from "react-router";
 import Pagination from "../components/Pagination";
 
@@ -14,7 +14,7 @@ export default function SearchResults() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
-  const [ totalPages, setTotalPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
   const query = searchParams.get("query");
   const page = searchParams.get("page") || 1;
@@ -53,7 +53,7 @@ export default function SearchResults() {
 
   return (
     <>
-      <Movielist movies={movies} title={`Arama Sonuçları: ${query}`} />
+      <MovieList movies={movies} title={`Arama Sonuçları: ${query}`} />
       <Pagination  page={page} totalPages={totalPages} setSearchParams={setSearchParams} query={query}/>
     </>
   );

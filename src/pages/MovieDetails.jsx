@@ -108,7 +108,7 @@ export default function MovieDetails() {
         </div>
       </div>
       <Actors actors={movie.credits.cast} />
-      <SimilarMovies movieId={id} />
+      <SimilarMovies movieId={id} title="Similar Movies" />
     </>
   );
 }

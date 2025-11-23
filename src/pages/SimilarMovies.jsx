@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
-import Movielist from "../components/MovieList";
+import MovieList from "../components/MovieList";
 
 const apiUrl = "https://api.themoviedb.org/3"
 const api_key = "c6b29038db5254e73f0febb766471d0a";
@@ -46,7 +46,7 @@ export default function SimilarMovies({ movieId }) {
   if(error) return <ErrorMessage message={error} />
 
   return (
-    <Movielist movies={movies} title="Similar Movies" />
+    <MovieList movies={movies} title="Similar Movies" />
   );
 };
 
