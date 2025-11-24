@@ -1,16 +1,16 @@
-export default function WatchListButton({ movies, onSetIsWatchListOpen }) {
+import { NavLink } from "react-router";
+import { ThemeContext } from "../contexts/ThemeContext";
+import { useContext } from "react";
+
+export default function WatchListButton({ movies }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="mb-2 mb-lg-0 ms-1">
-      <button
-        onClick={() => onSetIsWatchListOpen((prevState) => !prevState)}
-        type="button"
-        className="btn btn-outline-light position-relative"
-      >
-        <i className="bi bi-heart"></i>
-        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          {movies.length}
-        </span>
-      </button>
-    </div>
+    <NavLink to="/watchlist" className={`btn btn-${theme} border position-relative ms-1`}>
+      <i className="bi bi-heart-fill"></i>
+      <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-1">
+        {movies.length}
+      </span>
+    </NavLink>
   );
 }

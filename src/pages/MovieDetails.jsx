@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
 import SimilarMovies from "./SimilarMovies";
 import Actors from "../components/Actors";
+import { UserContext } from "../contexts/UserContext";
 
 const apiUrl = "https://api.themoviedb.org/3";
 const api_key = "c6b29038db5254e73f0febb766471d0a";
@@ -15,6 +16,11 @@ export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const { addToWatchList, watchList, removeFromWatchList } =
+    useContext(UserContext);
+
+  const isAdded = watchList?.find((m) => m.id === movie?.id);
 
   useEffect(() => {
     async function getMovie() {
@@ -63,7 +69,7 @@ export default function MovieDetails() {
             <div className="row">
               <div className="col-md-3 d-none d-lg-block">
                 <img
-                  src={`https:image.tmdb.org/t/p/original/${movie.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                   alt={movie.title}
                   className="img-fluid rounded shadow img-thumbnail"
                 />
@@ -79,8 +85,21 @@ export default function MovieDetails() {
                   {movie.runtime} Dakika
                 </p>
                 <p>
-                  <span className="badge bg-success">
+                  <span className="badge bg-success fs-6">
                     {Math.round(movie.vote_average * 10)}%
+                  </span>
+                  <span className="badge bg-danger fs-6 ms-2 pointer">
+                    {isAdded ? (
+                      <i
+                        className="bi bi-heart-fill"
+                        onClick={() => removeFromWatchList(movie)}
+                      ></i>
+                    ) : (
+                      <i
+                        className="bi bi-heart"
+                        onClick={() => addToWatchList(movie)}
+                      ></i>
+                    )}
                   </span>
                 </p>
                 {movie.overview && (
@@ -95,11 +114,11 @@ export default function MovieDetails() {
                   </p>
                   <p className="d-flex flex-column text-center">
                     <span>Yönetmen</span>
-                    <span>{movie.credits.crew[0].name}</span>
+                    <span>{movie.credits.crew[0]?.name}</span>
                   </p>
                   <p className="d-flex flex-column text-center">
                     <span>Senarist</span>
-                    <span>{movie.credits.crew[1].name}</span>
+                    <span>{movie.credits.crew[1]?.name}</span>
                   </p>
                 </div>
               </div>

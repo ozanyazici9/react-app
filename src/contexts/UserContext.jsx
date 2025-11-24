@@ -8,11 +8,11 @@ export default function UserContextProvider({ children }) {
   const [watchList, setWatchList] = useState(initialWatchList);
 
   useEffect(() => {
-    localStorage.setItem("theme", JSON.stringify(watchList));
+    localStorage.setItem("watchList", JSON.stringify(watchList));
   }, [watchList]);
 
   function addToWatchList(movie) {
-    const isAddedToList = watchListMovies.map((m) => m.id).includes(movie.id);
+    const isAddedToList = watchList.map((m) => m.id).includes(movie.id);
 
     if (!isAddedToList) {
       setWatchList((prev) => [...prev, movie]);
