@@ -7,6 +7,7 @@ export function ThemeContextProvider({ children }) {
   const initialTheme = storedTheme ? JSON.parse(storedTheme) : "light";
   const [theme, setTheme] = useState(initialTheme);
 
+
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
