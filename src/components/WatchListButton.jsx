@@ -14,3 +14,4 @@ export default function WatchListButton({ movies }) {
     </NavLink>
   );
 }
+ 
