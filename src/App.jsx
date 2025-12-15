@@ -8,6 +8,7 @@ import SearchResult from "./pages/SearchResults";
 import UserWatchList from "./pages/UserWatchList";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import ActorDetails from "./pages/ActorDetails";
 
 const routes = createBrowserRouter([
   {
@@ -18,9 +19,10 @@ const routes = createBrowserRouter([
       { path: "movies", element: <Movies /> },
       { path: "movies/:id", element: <MovieDetails /> },
       { path: "search", element: <SearchResult /> },
-      { path: "watchlist", element: <UserWatchList />},
-      { path: "login", element: <Login />},
-      { path: "register", element: <Register />}
+      { path: "watchlist", element: <UserWatchList /> },
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
+      { path: "actor/:id", element: <ActorDetails /> },
     ],
   },
 ]);

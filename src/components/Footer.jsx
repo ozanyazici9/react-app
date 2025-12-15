@@ -47,7 +47,7 @@ export default function Footer() {
 
           </div>
           
-          <span className={`mt-5 text-${inverted}`}> © 2025 Copyright: <a className={`text-${inverted}`} href="#">Movie App</a>
+          <span className={`mt-4 text-${inverted}`}> © 2025 Copyright: <a className={`text-${inverted}`} href="#">Movie App</a>
 
           </span>
         </section>

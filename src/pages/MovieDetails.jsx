@@ -6,9 +6,9 @@ import SimilarMovies from "./SimilarMovies";
 import Actors from "../components/Actors";
 import { UserContext } from "../contexts/UserContext";
 
-const apiUrl = "https://api.themoviedb.org/3";
-const api_key = "c6b29038db5254e73f0febb766471d0a";
-const language = "tr-TR";
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
+const api_key = import.meta.env.VITE_API_KEY;
+const language = import.meta.env.VITE_API_LANGUAGE;
 
 export default function MovieDetails() {
   const { id } = useParams();
@@ -44,6 +44,7 @@ export default function MovieDetails() {
       }
 
       setLoading(false);
+      window.scrollTo(0, 0);
     }
 
     getMovie();

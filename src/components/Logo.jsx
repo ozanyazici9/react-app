@@ -1,7 +1,9 @@
+import { NavLink } from "react-router";
+
 export default function Logo() {
-    return (
-        <a href="#" className="navbar-brand">
-            Movie App
-          </a>
-    );
+  return (
+    <NavLink className="nav-link navbar-brand" to="/">
+      Movie App
+    </NavLink>
+  );
 }
