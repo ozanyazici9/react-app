@@ -111,7 +111,7 @@ export default function MovieDetails() {
                 <div className="d-flex flex-column flex-md-row justify-content-between align-items-start">
                   <p className="d-flex flex-column text-center">
                     <span>Yapımcı</span>
-                    <span>{movie.production_companies[0].name}</span>
+                    <span>{movie.production_companies[0]?.name}</span>
                   </p>
                   <p className="d-flex flex-column text-center">
                     <span>Yönetmen</span>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
+import HorizontalScrollbar from "../components/HorizontalScrollbar";
 
 const apiUrl = import.meta.env.VITE_API_BASE_URL;
 const api_key = import.meta.env.VITE_API_KEY;
@@ -84,6 +85,7 @@ export default function ActorDetails() {
           <h2 className="fw-bold">{actor.name}</h2>
           <h3 className="my-4 fs-5">Biyografi</h3>
           <p className="fw-light">{actor.biography}</p>
+          <HorizontalScrollbar itemObj={actor.combined_credits} index={0} title="Bilinen İşleri" />
         </div>
       </div>
     </div>
