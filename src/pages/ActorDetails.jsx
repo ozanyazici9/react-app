@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
-import HorizontalScrollbar from "../components/HorizontalScrollbar";
+import HorizontalList from "../components/HorizontalList";
+import { tmdbImage } from "../utils/TmdbUtils";
 
 const apiUrl = import.meta.env.VITE_API_BASE_URL;
 const api_key = import.meta.env.VITE_API_KEY;
@@ -16,60 +17,54 @@ export default function ActorDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  async function getActor(language) {
-    const response = await fetch(
-      `${apiUrl}/person/${id}?language=${language}&api_key=${api_key}&append_to_response=combined_credits`
-    );
-
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    return await response.json();
-  }
-
   useEffect(() => {
-  const getActor = async (language) => {
-    const response = await fetch(
-      `${apiUrl}/person/${id}?language=${language}&api_key=${api_key}&append_to_response=combined_credits`
-    );
+    const getActor = async (language) => {
+      const response = await fetch(
+        `${apiUrl}/person/${id}?language=${language}&api_key=${api_key}&append_to_response=combined_credits`
+      );
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    return await response.json();
-  };
-
-  const fetchData = async () => {
-    try {
-      // 1️⃣ Tr isteği at
-      const responseTrJson = await getActor(languageTr);
-
-      // 2️⃣ tr Biography var mı kontrol et
-      if (responseTrJson?.biography?.trim()) {
-        setActor(responseTrJson);
-      } else {
-        // 3️⃣ Tr boşsa en isteği at
-        const responseEnJson = await getActor(languageEn);
-        
-        // 4️⃣ TR varsa kullan, yoksa EN
-        setActor(responseTrJson?.biography?.trim() ? responseTrJson : responseEnJson);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
 
-      setError("");
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+      return await response.json();
+    };
 
-  fetchData();
-}, [id]);
+    const fetchData = async () => {
+      try {
+        // 1️⃣ Tr isteği at
+        const responseTrJson = await getActor(languageTr);
+
+        // 2️⃣ tr Biography var mı kontrol et
+        if (responseTrJson?.biography?.trim()) {
+          setActor(responseTrJson);
+        } else {
+          // 3️⃣ Tr boşsa en isteği at
+          const responseEnJson = await getActor(languageEn);
+
+          // 4️⃣ TR varsa kullan, yoksa EN
+          setActor(
+            responseTrJson?.biography?.trim() ? responseTrJson : responseEnJson
+          );
+        }
+
+        setError("");
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   if (loading) return <Loading />;
   if (error) return <ErrorMessage message={error} />;
+
+  const topPopularJobs = actor.combined_credits.cast
+    .sort((a, b) => b.popularity - a.popularity)
+    .slice(0, 10);
 
   return (
     <div className="container my-4">
@@ -82,10 +77,18 @@ export default function ActorDetails() {
           />
         </div>
         <div className="col-md-9">
-          <h2 className="fw-bold">{actor.name}</h2>
-          <h3 className="my-4 fs-5">Biyografi</h3>
+          <h2 className="mb-4 fw-bold">{actor.name}</h2>
+          <h3 className=" fs-5">Biyografi</h3>
           <p className="fw-light">{actor.biography}</p>
-          <HorizontalScrollbar itemObj={actor.combined_credits} index={0} title="Bilinen İşleri" />
+          <HorizontalList
+            title="Bilinen İşleri"
+            items={topPopularJobs}
+            getImage={(item) =>
+              tmdbImage(item.poster_path || item.profile_path)
+            }
+            getTitle={(item) => item.title || item.name}
+            getLink={(item) => `/movies/${item.id}`}
+          />
         </div>
       </div>
     </div>
