@@ -4,6 +4,7 @@ import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
 import HorizontalList from "../components/HorizontalList";
 import { tmdbImage } from "../utils/TmdbUtils";
+import ReadMoreText from "../components/ReadMoreText";
 
 const apiUrl = import.meta.env.VITE_API_BASE_URL;
 const api_key = import.meta.env.VITE_API_KEY;
@@ -79,7 +80,7 @@ export default function ActorDetails() {
         <div className="col-md-9">
           <h2 className="mb-4 fw-bold">{actor.name}</h2>
           <h3 className=" fs-5">Biyografi</h3>
-          <p className="fw-light">{actor.biography}</p>
+          <ReadMoreText text={actor.biography} maxLength={1000}></ReadMoreText>
           <HorizontalList
             title="Bilinen İşleri"
             items={topPopularJobs}

@@ -22,3 +22,31 @@
 .pointer {
   cursor: pointer;
 }
+
+.biography {
+  overflow: hidden;
+  max-height: 180px;
+  transition: max-height 0.6s ease-in-out;
+}
+
+.biography.expanded {
+  max-height: 2000px;
+}
+
+.readmore-fade {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 3rem;
+  width: 60%;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+
+  backdrop-filter: blur(0.7px);
+  -webkit-backdrop-filter: blur(4px);
+}
