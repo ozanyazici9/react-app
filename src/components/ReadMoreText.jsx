@@ -8,7 +8,6 @@ export default function ReadMoreText({ text, maxLength }) {
   }
 
   const textParagraphs = text.split("\n\n").filter((p) => p.trim());
-  console.log(textParagraphs);
 
   const isLong = text.length > maxLength;
 

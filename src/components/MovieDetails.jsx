@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Loading from "./Loading";
-
-const api_key = "c6b29038db5254e73f0febb766471d0a";
-const language = "tr-TR";
+import { tmdbImage } from "../utils/TmdbUtils";
+import { API_BASE_URL } from "../config/env";
+import { API_KEY } from "../config/env";
+import { API_LANGUAGE_TR } from "../config/env";
 
 export default function MovieDetails({ movieObj, onClose }) {
   const [loadedMovie, setLoadedMovie] = useState(null);
@@ -14,7 +15,7 @@ export default function MovieDetails({ movieObj, onClose }) {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${movieObj.id}?api_key=${api_key}&language=${language}&append_to_response=credits`
+          `${API_BASE_URL}/movie/${movieObj.id}?api_key=${API_KEY}&language=${API_LANGUAGE_TR}&append_to_response=credits`
         );
 
         if (!response.ok) {
@@ -48,9 +49,7 @@ export default function MovieDetails({ movieObj, onClose }) {
           <div className="row">
             <div className="col-md-3">
               <img
-                src={
-                  "https://image.tmdb.org/t/p/original/" + movieObj.poster_path
-                }
+                src={tmdbImage(movieObj.poster_path)}
                 alt=""
                 className="img-fluid"
               />

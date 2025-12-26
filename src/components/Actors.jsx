@@ -1,4 +1,5 @@
 import { NavLink } from "react-router";
+import { tmdbImage } from "../utils/TmdbUtils";
 
 export default function Actors({ actors }) {
   return (
@@ -10,7 +11,7 @@ export default function Actors({ actors }) {
             <NavLink className="nav-link" to={`/actor/${actor.id}`}>
               <img
                 src={
-                  "https://image.tmdb.org/t/p/original/" + actor.profile_path
+                    tmdbImage(actor.profile_path)
                 }
                 alt={"actor.name"}
                 className={"img-fluid img-thumbnail rounded shadow"}

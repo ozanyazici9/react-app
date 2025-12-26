@@ -6,7 +6,6 @@ export default function SearchForm() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const { theme } = useContext(ThemeContext);
-  const inverted = theme === "light" ? "dark" : "light";
 
   function handleSubmit(e) {
     e.preventDefault();

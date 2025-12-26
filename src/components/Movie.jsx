@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { tmdbImage } from "../utils/TmdbUtils";
 
 // const {movieObj, key} = props js de destructing
 export default function Movie({ movieObj }) {
@@ -8,7 +9,7 @@ export default function Movie({ movieObj }) {
         className="card movie position-relative h-100">
           <Link to={`/movies/${movieObj.id}`}>
         <img
-          src={"https://image.tmdb.org/t/p/original/" + movieObj.poster_path}
+          src={tmdbImage(movieObj.poster_path)}
           alt=""
           className="card-img-top"
         />

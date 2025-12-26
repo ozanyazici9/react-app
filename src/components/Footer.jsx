@@ -14,41 +14,44 @@ export default function Footer() {
         <section className="mb-4 d-flex flex-column align-items-center">
           <div>
             <a
-            className={`btn btn-outline-${inverted} btn-floating m-1`}
-            href="#!"
-            role="button"
-          >
-            <i className="bi bi-facebook"></i>
-          </a>
+              className={`btn btn-outline-${inverted} btn-floating m-1`}
+              href="#!"
+              role="button"
+            >
+              <i className="bi bi-facebook"></i>
+            </a>
 
-          <a
-            className={`btn btn-outline-${inverted} btn-floating m-1`}
-            href="#!"
-            role="button"
-          >
-            <i className="bi bi-twitter"></i>
-          </a>
+            <a
+              className={`btn btn-outline-${inverted} btn-floating m-1`}
+              href="#!"
+              role="button"
+            >
+              <i className="bi bi-twitter"></i>
+            </a>
 
-          <a
-            className={`btn btn-outline-${inverted} btn-floating m-1`}
-            href="#!"
-            role="button"
-          >
-            <i className="bi bi-google"></i>
-          </a>
+            <a
+              className={`btn btn-outline-${inverted} btn-floating m-1`}
+              href="#!"
+              role="button"
+            >
+              <i className="bi bi-google"></i>
+            </a>
 
-          <a
-            className={`btn btn-outline-${inverted} btn-floating m-1`}
-            href="#!"
-            role="button"
-          >
-            <i className="bi bi-instagram"></i>
-          </a>
-
+            <a
+              className={`btn btn-outline-${inverted} btn-floating m-1`}
+              href="#!"
+              role="button"
+            >
+              <i className="bi bi-instagram"></i>
+            </a>
           </div>
-          
-          <span className={`mt-4 text-${inverted}`}> © 2025 Copyright: <a className={`text-${inverted}`} href="#">Movie App</a>
 
+          <span className={`mt-4 text-${inverted}`}>
+            {" "}
+            © 2025 Copyright:{" "}
+            <a className={`text-${inverted}`} href="#">
+              Movie App
+            </a>
           </span>
         </section>
       </div>

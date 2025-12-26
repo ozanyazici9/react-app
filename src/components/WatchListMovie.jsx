@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { tmdbImage } from "../utils/TmdbUtils";
 
 // const {movieObj, key} = props js de destructing
 export default function WatchListMovie({
@@ -12,7 +13,7 @@ export default function WatchListMovie({
           <Link to={`/movies/${movieObj.id}`}>
             <img
               src={
-                "https://image.tmdb.org/t/p/original/" + movieObj.poster_path
+                tmdbImage(movieObj.poster_path)
               }
               alt=""
               className="img-fluid rounded"

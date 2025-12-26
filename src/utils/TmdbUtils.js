@@ -1,5 +1,6 @@
 // ımage url
-export const tmdbImage = (path, size = "w200") =>
+import { IMG_PLACEHOLDER } from "../config/env";
+export const tmdbImage = (path) =>
   path
-    ? `https://image.tmdb.org/t/p/${size}${path}`
-    : "";
+    ? `https://image.tmdb.org/t/p/original/${path}`
+    : IMG_PLACEHOLDER;
