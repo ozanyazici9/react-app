@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
-import Movielist from "../components/MovieList";
-
-const apiUrl = "https://api.themoviedb.org/3";
-const api_key = "c6b29038db5254e73f0febb766471d0a";
-const page = 1;
-const language = "tr-TR";
+import MovieTvList from "../components/MovieTvList";
+import { API_BASE_URL } from "../config/env";
+import { API_KEY } from "../config/env";
+import { API_LANGUAGE_EN } from "../config/env";
+import { API_LANGUAGE_TR } from "../config/env";
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const page = "1";
+
   useEffect(() => {
     async function getMovies() {
       setLoading(true);
       try {
         const response = await fetch(
-          `${apiUrl}/movie/popular?api_key=${api_key}&page=${page}&language=${language}`
+          `${API_BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=${API_LANGUAGE_EN}&page=${page}`
         );
 
         if (!response.ok) {
@@ -44,5 +45,10 @@ export default function Movies() {
   if (loading) return <Loading />;
   if (error) return <ErrorMessage message={error} />;
 
-  return <Movielist movies={movies} title={"Populer Filmler"}/>;
+  return (
+    <MovieTvList
+      obj={movies}
+      title={"Haftalık Trend Filmler"}
+    />
+  );
 }

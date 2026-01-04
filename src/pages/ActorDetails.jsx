@@ -88,7 +88,6 @@ export default function ActorDetails() {
               tmdbImage(item.poster_path || item.profile_path)
             }
             getTitle={(item) => item.title || item.name}
-            getLink={(item) => `/movies/${item.id}`}
           />
         </div>
       </div>

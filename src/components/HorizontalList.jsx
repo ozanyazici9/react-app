@@ -5,7 +5,6 @@ export default function HorizontalList({
   title,
   getImage,
   getTitle,
-  getLink,
 }) {
   return (
     <div className="mt-4">
@@ -13,8 +12,8 @@ export default function HorizontalList({
       <div className="row flex-nowrap overflow-x-auto ">
         {items?.map((item) => (
           <div className="col-auto" key={item.id}>
-            <NavLink className="nav-link" to={getLink(item)}>
-              <div style={{ width: "120px" }}>
+            <NavLink className="nav-link" to={`/movietv/${item.media_type}/${item.id}` }>
+              <div style={{ width: "120px" }}> 
                 <img
                   src={getImage(item)}
                   alt={getTitle(item)}

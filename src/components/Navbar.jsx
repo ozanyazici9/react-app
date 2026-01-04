@@ -59,6 +59,11 @@ export default function Navbar() {
             Register
           </NavLink>
         </li>
+         <li className="nav-item">
+          <NavLink className="nav-link" to="/tvshows">
+            TV Shows
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

@@ -5,13 +5,16 @@ import ErrorMessage from "../components/ErrorMessage";
 import SimilarMovies from "./SimilarMovies";
 import Actors from "../components/Actors";
 import { UserContext } from "../contexts/UserContext";
-
-const apiUrl = import.meta.env.VITE_API_BASE_URL;
-const api_key = import.meta.env.VITE_API_KEY;
-const language = import.meta.env.VITE_API_LANGUAGE;
+import { API_BASE_URL } from "../config/env";
+import { API_KEY } from "../config/env";
+import { API_LANGUAGE_EN } from "../config/env";
+import { API_LANGUAGE_TR } from "../config/env";
+import { tmdbImage } from "../utils/TmdbUtils";
 
 export default function MovieDetails() {
-  const { id } = useParams();
+  const { mediaType, id } = useParams();
+
+  const endpoint = `${mediaType}/${id}`;
 
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,7 +29,7 @@ export default function MovieDetails() {
     async function getMovie() {
       try {
         const response = await fetch(
-          `${apiUrl}/movie/${id}?api_key=${api_key}&language=${language}&append_to_response=credits`
+          `${API_BASE_URL}/${endpoint}?api_key=${API_KEY}&language=${API_LANGUAGE_EN}&append_to_response=credits`
         );
 
         if (!response.ok) {
@@ -58,7 +61,7 @@ export default function MovieDetails() {
       <div
         className="text-white position-relative"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
+          backgroundImage: `url(${tmdbImage(movie.backdrop_path)})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -70,7 +73,7 @@ export default function MovieDetails() {
             <div className="row">
               <div className="col-md-3 d-none d-lg-block">
                 <img
-                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                  src={tmdbImage(movie.poster_path)}
                   alt={movie.title}
                   className="img-fluid rounded shadow img-thumbnail"
                 />
@@ -128,7 +131,7 @@ export default function MovieDetails() {
         </div>
       </div>
       <Actors actors={movie.credits.cast} />
-      <SimilarMovies movieId={id} title="Similar Movies" />
+      <SimilarMovies path={endpoint} />
     </>
   );
 }

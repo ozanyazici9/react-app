@@ -2,29 +2,24 @@ import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
 import MovieTvList from "../components/MovieTvList";
-import { useSearchParams } from "react-router";
-import Pagination from "../components/Pagination";
 import { API_BASE_URL } from "../config/env";
 import { API_KEY } from "../config/env";
 import { API_LANGUAGE_EN } from "../config/env";
 import { API_LANGUAGE_TR } from "../config/env";
 
-export default function SearchResults() {
-  const [movies, setMovies] = useState([]);
+export default function TvShows() {
+  const [tvshows, setTvShows] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [totalPages, setTotalPages] = useState(0);
 
-  const query = searchParams.get("query");
-  const page = searchParams.get("page") || 1;
+  const page = "1";
 
   useEffect(() => {
-    async function getMovies() {
+    async function getTvShows() {
       setLoading(true);
       try {
         const response = await fetch(
-          `${API_BASE_URL}/search/multi?include_adult=true&api_key=${API_KEY}&query=${query}&page=${page}&language=${API_LANGUAGE_EN}`
+          `${API_BASE_URL}//tv/popular?api_key=${API_KEY}&page=${page}&language=${API_LANGUAGE_EN}`
         );
 
         if (!response.ok) {
@@ -34,8 +29,7 @@ export default function SearchResults() {
         const data = await response.json();
 
         if (data.results) {
-          setMovies(data.results);
-          setTotalPages(data.total_pages);
+          setTvShows(data.results);
         }
         setError("");
       } catch (error) {
@@ -45,21 +39,11 @@ export default function SearchResults() {
       setLoading(false);
     }
 
-    getMovies();
-  }, [searchParams]);
+    getTvShows();
+  }, []);
 
   if (loading) return <Loading />;
   if (error) return <ErrorMessage message={error} />;
 
-  return (
-    <>
-      <MovieTvList obj={movies}  title={`Arama Sonuçları: ${query}`} />
-      <Pagination
-        page={page}
-        totalPages={totalPages}
-        setSearchParams={setSearchParams}
-        query={query}
-      />
-    </>
-  );
+  return <MovieTvList obj={tvshows} title="Tv Shows" path="/tvshows" />;
 }

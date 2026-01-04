@@ -10,7 +10,7 @@ export default function WatchListMovie({
     <div className="col">
       {
         <div className="card movie position-relative">
-          <Link to={`/movies/${movieObj.id}`}>
+          <Link to={`/movietv/${movieObj.id}`}>
             <img
               src={
                 tmdbImage(movieObj.poster_path)

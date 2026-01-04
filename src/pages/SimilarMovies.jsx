@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
-import MovieList from "../components/MovieList";
+import MovieTvList from "../components/MovieTvList";
+import { API_BASE_URL } from "../config/env";
+import { API_KEY } from "../config/env";
+import { API_LANGUAGE_EN } from "../config/env";
+import { API_LANGUAGE_TR } from "../config/env";
 
-const apiUrl = "https://api.themoviedb.org/3"
-const api_key = "c6b29038db5254e73f0febb766471d0a";
-const page = 1;
-const language = "tr-TR";
-
-
-export default function SimilarMovies({ movieId }) {
+export default function SimilarMovies({ path }) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const page = "1";
 
   useEffect(() => {
     async function getMovies() {
       setLoading(true);
       try {
         const response = await fetch(
-          `${apiUrl}/movie/${movieId}/similar?api_key=${api_key}&page=${page}&language=${language}&adult=true`
+          `${API_BASE_URL}/${path}/similar?api_key=${API_KEY}&page=${page}&language=${API_LANGUAGE_EN}&adult=true`
         );
 
         if (!response.ok) {
@@ -40,13 +40,10 @@ export default function SimilarMovies({ movieId }) {
     }
 
     getMovies();
-  }, [movieId]);
+  }, [path]);
 
-  if(loading) return <Loading />
-  if(error) return <ErrorMessage message={error} />
+  if (loading) return <Loading />;
+  if (error) return <ErrorMessage message={error} />;
 
-  return (
-    <MovieList movies={movies} title="Similar Movies" />
-  );
-};
-
+  return <MovieTvList obj={movies}  title={path.includes("movie") ? "Benzer Filmler" : "Benzer Diziler"} mediaType={path.includes("movie") ? "movie" : "tv"} />;
+}

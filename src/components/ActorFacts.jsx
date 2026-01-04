@@ -1,15 +1,20 @@
 import SocialLinks from "./SocialLinks";
 
 export default function ActorFacts({ actorFacts }) {
-  const todayDate = new Date().toLocaleDateString("tr-TR").split(".").reverse();
-  const actorBirthday = actorFacts.birthday.split("-");
-  let actorAgeYear = todayDate[0] - actorBirthday[0];
+  function calculateAge(birthDate, deathDate) {
+    const today = new Date();
+    const birthDateObj = birthDate ? new Date(birthDate) : null;
+    const deathDateObj = deathDate ? new Date(deathDate) : null;
 
-  if (
-    todayDate[1] < actorBirthday[1] ||
-    (todayDate[1] === actorBirthday[1] && todayDate[2] < actorBirthday[2])
-  ) {
-    actorAgeYear -= 1;
+    if (birthDateObj && today < birthDateObj) {
+      return today.getFullYear() - birthDateObj.getFullYear() - 1;
+    }
+
+    if (deathDateObj && today > deathDateObj) {
+      return deathDateObj.getFullYear() - birthDateObj.getFullYear();
+    }
+
+    return today.getFullYear() - birthDateObj.getFullYear();
   }
 
   return (
@@ -41,12 +46,21 @@ export default function ActorFacts({ actorFacts }) {
           <strong>
             <bdi>Doğum Tarihi</bdi>
             <div className="fw-light">
-              {actorFacts.birthday !== null
-                ? actorFacts.birthday + " " + `( ${actorAgeYear}  yaşında )`
-                : "-"}
+              {`${actorFacts.birthday} (${calculateAge(
+                actorFacts.birthday,
+                actorFacts.deathday
+              )}) yaşında`}
             </div>
           </strong>
         </div>
+        {actorFacts.deathday !== null && (
+          <div className="mb-3">
+            <strong>
+              <bdi>Ölüm Tarihi</bdi>
+              <div className="fw-light">{actorFacts.deathday}</div>
+            </strong>
+          </div>
+        )}
         <div className="mb-3">
           <strong>
             <bdi>Doğum Yeri</bdi>

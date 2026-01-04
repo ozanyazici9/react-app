@@ -8,6 +8,7 @@ import UserWatchList from "./pages/UserWatchList";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import ActorDetails from "./pages/ActorDetails";
+import TvShows from "./pages/TvShows";
 
 const routes = createBrowserRouter([
   {
@@ -16,12 +17,14 @@ const routes = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "movies", element: <Movies /> },
-      { path: "movies/:id", element: <MovieDetails /> },
+      { path: "movietv/:mediaType/:id", element: <MovieDetails /> },
       { path: "search", element: <SearchResult /> },
       { path: "watchlist", element: <UserWatchList /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       { path: "actor/:id", element: <ActorDetails /> },
+      { path: "tvshows", element: <TvShows />},
+      { path: "tvshows/:id", element: <MovieDetails /> },
     ],
   },
 ]);
