@@ -3,10 +3,12 @@ import { tmdbImage } from "../utils/TmdbUtils";
 
 // const {movieObj, key} = props js de destructing
 export default function MovieTvItem({ obj, path, mediaType }) {
+  const type = mediaType ?? obj.media_type;
+
   return (
     <div className="col">
       <div className="card movie position-relative h-100">
-        <Link to={`/${path}/${obj.media_type}/${obj.id}`}>
+        <Link to={`/${path}/${type}/${obj.id}`}>
           <img
             src={tmdbImage(obj.poster_path)}
             alt=""
@@ -14,7 +16,7 @@ export default function MovieTvItem({ obj, path, mediaType }) {
           />
         </Link>
         <div className="card-body">
-          <h2 className="card-title h5">{mediaType === "movie" ? obj.title : obj.name}</h2>
+          <h2 className="card-title h5">{type === "movie" ? obj.title : obj.name}</h2>
         </div>
       </div>
     </div>

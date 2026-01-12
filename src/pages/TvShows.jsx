@@ -19,7 +19,7 @@ export default function TvShows() {
       setLoading(true);
       try {
         const response = await fetch(
-          `${API_BASE_URL}//tv/popular?api_key=${API_KEY}&page=${page}&language=${API_LANGUAGE_EN}`
+          `${API_BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${page}&language=${API_LANGUAGE_EN}`
         );
 
         if (!response.ok) {
@@ -45,5 +45,10 @@ export default function TvShows() {
   if (loading) return <Loading />;
   if (error) return <ErrorMessage message={error} />;
 
-  return <MovieTvList obj={tvshows} title="Tv Shows" path="/tvshows" />;
+  return (
+    <MovieTvList 
+      obj={tvshows}
+      title={"Haftalık Trend Diziler"}
+    />
+  );
 }

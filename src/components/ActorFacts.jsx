@@ -20,7 +20,7 @@ export default function ActorFacts({ actorFacts }) {
   return (
     <>
       <SocialLinks actorLinks={actorFacts.external_ids}></SocialLinks>
-      <h3 className="fs-5 fw-bold">Kişisel Bilgiler</h3>
+      <h2 className="fs-5 fw-bold mt-4 mb-3">Kişisel Bilgiler</h2>
       <div>
         <div className="mb-3">
           <strong>

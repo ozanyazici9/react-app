@@ -42,6 +42,11 @@ export default function Navbar() {
                 Movies
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/tvshows">
+                TV Shows
+              </NavLink>
+            </li>
           </ul>
 
           <SearchForm />
@@ -57,11 +62,6 @@ export default function Navbar() {
         <li className="nav-item">
           <NavLink className="nav-link" to="/register">
             Register
-          </NavLink>
-        </li>
-         <li className="nav-item">
-          <NavLink className="nav-link" to="/tvshows">
-            TV Shows
           </NavLink>
         </li>
       </ul>

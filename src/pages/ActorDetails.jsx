@@ -79,7 +79,7 @@ export default function ActorDetails() {
         </div>
         <div className="col-md-9">
           <h2 className="mb-4 fw-bold">{actor.name}</h2>
-          <h3 className=" fs-5">Biyografi</h3>
+          <h3 className=" fs-5">{actor.biography ? "Biyografi" : ""}</h3>
           <ReadMoreText text={actor.biography} maxLength={1000}></ReadMoreText>
           <HorizontalList
             title="Bilinen İşleri"

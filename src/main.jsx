@@ -1,7 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
+
 import App from "./App";
+import "@fontsource/outfit";
+import "@fontsource/outfit/500.css";
+import "@fontsource/outfit/700.css";
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";

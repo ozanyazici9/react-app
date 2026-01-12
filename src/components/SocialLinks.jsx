@@ -7,7 +7,7 @@ export default function SocialLinks({ actorLinks }) {
 
   return (
     <div className={`bg-${theme}`} data-bs-theme={theme}>
-      <section className="mb-3">
+      <section className="mt-3">
         <div>
           {actorLinks.instagram_id && (
             <a

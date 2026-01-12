@@ -12,7 +12,7 @@ import { API_LANGUAGE_TR } from "../config/env";
 import { tmdbImage } from "../utils/TmdbUtils";
 
 export default function MovieDetails() {
-  const { mediaType, id } = useParams();
+  const { mediaType, id } = useParams();  
 
   const endpoint = `${mediaType}/${id}`;
 
@@ -79,7 +79,8 @@ export default function MovieDetails() {
                 />
               </div>
               <div className="col-md-9">
-                <h1 className="display-4">{movie.title}</h1>
+                <h1 className="display-4">{mediaType === "movie" ? movie.title : movie.name}</h1>
+                <p>{mediaType[0].toUpperCase() + mediaType.slice(1)}</p>
                 <p>
                   {movie.release_date} <i className="bi bi-dot text-white"></i>
                   <span className="text-white">
