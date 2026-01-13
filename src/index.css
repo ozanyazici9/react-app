@@ -56,3 +56,17 @@ body {
   backdrop-filter: blur(0.7px);
   -webkit-backdrop-filter: blur(4px);
 }
+
+.movie-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 70px rgba(255,0,0,1);
+  z-index: 1;
+}
+
+.max-h-70 {
+  max-height: 100px;
+}

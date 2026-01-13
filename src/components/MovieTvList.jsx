@@ -12,7 +12,7 @@ export default function MovieTvList({ obj, title, mediaType }) {
           className="row row-cols-3 row-cols-md-4 row-cols-lg-6 g-2"
         >
           {obj.map((m, index) => (
-            <MovieTvItem obj={m} key={index} path={"movieTv"} mediaType={mediaType} />
+            <MovieTvItem obj={m} key={index} mediaType={mediaType} />
           ))}
         </div>
       )}
