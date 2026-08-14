@@ -30,17 +30,15 @@ TMDB (The Movie Database) API kullanılarak geliştirilmiş, film ve dizi keşfe
     <td align="center"><b>Diziler</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/0300793e-1387-4448-81ed-5cfa7a92bba8" width="450"/></td>
+    <td><img src="https://github.com/user-attachments/assets/796cabfb-41ba-4467-b911-08cffcb0c207" width="450"/></td>
     <td><img width="450" alt="Image" src="https://github.com/user-attachments/assets/2182078f-c4d2-44ee-adc7-d6b5381fe240" /></td>
-    
-
   </tr>
   <tr>
     <td align="center"><b>Aktör Detayı</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/796cabfb-41ba-4467-b911-08cffcb0c207" width="450"/></td>
-    <td><img src="https://github.com/user-attachments/assets/1a502542-6e9a-4b4d-926b-69bcf40fa039" width="450"/></td>
+    <td><img src="https://github.com/user-attachments/assets/1a502542-6e9a-4b4d-926b-69bcf40fa039" width="450"/></td
+    <td><img src="https://github.com/user-attachments/assets/0300793e-1387-4448-81ed-5cfa7a92bba8" width="450"/></td>                                                                                                   
   </tr>
   <tr>
     <td align="center"><b>İzleme Listesi</b></td>
