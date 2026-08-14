@@ -34,7 +34,7 @@ TMDB (The Movie Database) API kullanılarak geliştirilmiş, film ve dizi keşfe
     <td><img width="450" alt="Image" src="https://github.com/user-attachments/assets/2182078f-c4d2-44ee-adc7-d6b5381fe240" /></td>
   </tr>
   <tr>
-    <td align="center"><b>Aktör Detayı</b></td>
+    <td colspan=2 align="center"><b>Aktör Detayı</b></td>
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/1a502542-6e9a-4b4d-926b-69bcf40fa039" width="450"/></td
