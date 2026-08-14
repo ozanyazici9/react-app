@@ -21,65 +21,45 @@ TMDB (The Movie Database) API kullanılarak geliştirilmiş, film ve dizi keşfe
     <td align="center"><b>Filmler</b></td>
   </tr>
   <tr>
-    <td>
-      <img src="https://github.com/user-attachments/assets/c54897e2-4e5e-4d14-b327-db5e9ca40ed1" width="450"/>
-    </td>
-    <td>
-      <img src="https://github.com/user-attachments/assets/b3daef5c-58f0-417a-bdee-7d2be535ffdc" width="450"/>
-    </td>
+     <td><img src="https://github.com/user-attachments/assets/c54897e2-4e5e-4d14-b327-db5e9ca40ed1" width="450"/></td>
+    <td><img width="450" alt="Image" src="https://github.com/user-attachments/assets/b3daef5c-58f0-417a-bdee-7d2be535ffdc" /></td>
+    
   </tr>
-
   <tr>
     <td align="center"><b>Film Detayı</b></td>
     <td align="center"><b>Diziler</b></td>
   </tr>
   <tr>
-    <td>
-      <img src="https://github.com/user-attachments/assets/796cabfb-41ba-4467-b911-08cffcb0c207" width="450"/>
-    </td>
-    <td>
-      <img src="https://github.com/user-attachments/assets/2182078f-c4d2-44ee-adc7-d6b5381fe240" width="450"/>
-    </td>
+    <td><img src="https://github.com/user-attachments/assets/796cabfb-41ba-4467-b911-08cffcb0c207" width="450"/></td>
+    <td><img width="450" alt="Image" src="https://github.com/user-attachments/assets/2182078f-c4d2-44ee-adc7-d6b5381fe240" /></td>
   </tr>
-
   <tr>
     <td colspan="2" align="center"><b>Aktör Detayı</b></td>
   </tr>
   <tr>
-    <td>
-      <img src="https://github.com/user-attachments/assets/1a502542-6e9a-4b4d-926b-69bcf40fa039" width="450"/>
-    </td>
-    <td>
-      <img src="https://github.com/user-attachments/assets/0300793e-1387-4448-81ed-5cfa7a92bba8" width="450"/>
-    </td>
+    <td><img src="https://github.com/user-attachments/assets/1a502542-6e9a-4b4d-926b-69bcf40fa039" width="450"/></td>
+    <td><img src="https://github.com/user-attachments/assets/0300793e-1387-4448-81ed-5cfa7a92bba8" width="450"/></td>                                                                                                   
   </tr>
-
   <tr>
     <td align="center"><b>İzleme Listesi</b></td>
     <td align="center"><b>Giriş</b></td>
   </tr>
   <tr>
-    <td>
-      <img src="https://github.com/user-attachments/assets/ab77a6eb-a540-4637-90c1-3ee250ba541f" width="450"/>
-    </td>
-    <td>
-      <img src="https://github.com/user-attachments/assets/11265204-7fc7-43ae-8de7-f32dfef8c61f" width="450"/>
-    </td>
+    <td><img src="https://github.com/user-attachments/assets/ab77a6eb-a540-4637-90c1-3ee250ba541f" width="450"/></td>
+   <td><img src="https://github.com/user-attachments/assets/11265204-7fc7-43ae-8de7-f32dfef8c61f" width="450"/></td>
+    
   </tr>
-
   <tr>
     <td align="center"><b>Kayıt Ol</b></td>
     <td align="center"><b>Tema Seçici</b></td>
   </tr>
   <tr>
-    <td>
-      <img src="https://github.com/user-attachments/assets/52265ea3-5c88-4bc3-919d-4e8dcd44a937" width="450"/>
-    </td>
-    <td>
-      <img src="https://github.com/user-attachments/assets/96625417-aeb9-4acd-abb7-d18b7e318b5c" width="450"/>
-    </td>
+    <td><img src="https://github.com/user-attachments/assets/52265ea3-5c88-4bc3-919d-4e8dcd44a937" width="450"/></td>
+    <td><img src="https://github.com/user-attachments/assets/96625417-aeb9-4acd-abb7-d18b7e318b5c" width="450"/></td>
   </tr>
 </table>
+
+> Not: Görsellerin sırası tahmini yerleştirildi — hangi görselin hangi sayfaya ait olduğunu bilmediğim için akışa göre sıraladım. Yanlış eşleşen varsa `<img src="...">` satırlarının yerlerini değiştirmen yeterli, yapı bozulmaz.
 
 ## Kullanılan Teknolojiler
 
