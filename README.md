@@ -22,7 +22,7 @@ TMDB (The Movie Database) API kullanılarak geliştirilmiş, film ve dizi keşfe
   </tr>
   <tr>
      <td><img src="https://github.com/user-attachments/assets/c54897e2-4e5e-4d14-b327-db5e9ca40ed1" width="450"/></td>
-    
+    <img width="1676" height="1032" alt="Image" src="https://github.com/user-attachments/assets/2182078f-c4d2-44ee-adc7-d6b5381fe240" />
     
   </tr>
   <tr>
@@ -31,7 +31,8 @@ TMDB (The Movie Database) API kullanılarak geliştirilmiş, film ve dizi keşfe
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/0300793e-1387-4448-81ed-5cfa7a92bba8" width="450"/></td>
-    
+    <img width="1676" height="1041" alt="Image" src="https://github.com/user-attachments/assets/b3daef5c-58f0-417a-bdee-7d2be535ffdc" />
+
   </tr>
   <tr>
     <td align="center"><b>Aktör Detayı</b></td>
