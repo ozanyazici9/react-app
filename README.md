@@ -21,8 +21,9 @@ TMDB (The Movie Database) API kullanılarak geliştirilmiş, film ve dizi keşfe
     <td align="center"><b>Filmler</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/ab77a6eb-a540-4637-90c1-3ee250ba541f" width="450"/></td>
-    <td><img src="https://github.com/user-attachments/assets/1a502542-6e9a-4b4d-926b-69bcf40fa039" width="450"/></td>
+     <td><img src="https://github.com/user-attachments/assets/c54897e2-4e5e-4d14-b327-db5e9ca40ed1" width="450"/></td>
+    
+    
   </tr>
   <tr>
     <td align="center"><b>Film Detayı</b></td>
@@ -30,21 +31,23 @@ TMDB (The Movie Database) API kullanılarak geliştirilmiş, film ve dizi keşfe
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/0300793e-1387-4448-81ed-5cfa7a92bba8" width="450"/></td>
+    
+  </tr>
+  <tr>
+    <td align="center"><b>Aktör Detayı</b></td>
+  </tr>
+  <tr>
     <td><img src="https://github.com/user-attachments/assets/796cabfb-41ba-4467-b911-08cffcb0c207" width="450"/></td>
-  </tr>
-  <tr>
-    <td align="center" colspan="2"><b>Aktör Detayı</b></td>
-  </tr>
-  <tr>
-    <td colspan="2"><img src="https://github.com/user-attachments/assets/bdc03383-3163-4608-ac2d-f7eb84ff173e" width="900"/></td>
+    <td><img src="https://github.com/user-attachments/assets/1a502542-6e9a-4b4d-926b-69bcf40fa039" width="450"/></td>
   </tr>
   <tr>
     <td align="center"><b>İzleme Listesi</b></td>
     <td align="center"><b>Giriş</b></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/c54897e2-4e5e-4d14-b327-db5e9ca40ed1" width="450"/></td>
-    <td><img src="https://github.com/user-attachments/assets/96625417-aeb9-4acd-abb7-d18b7e318b5c" width="450"/></td>
+    <td><img src="https://github.com/user-attachments/assets/ab77a6eb-a540-4637-90c1-3ee250ba541f" width="450"/></td>
+   <td><img src="https://github.com/user-attachments/assets/11265204-7fc7-43ae-8de7-f32dfef8c61f" width="450"/></td>
+    
   </tr>
   <tr>
     <td align="center"><b>Kayıt Ol</b></td>
@@ -52,7 +55,7 @@ TMDB (The Movie Database) API kullanılarak geliştirilmiş, film ve dizi keşfe
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/52265ea3-5c88-4bc3-919d-4e8dcd44a937" width="450"/></td>
-    <td><img src="https://github.com/user-attachments/assets/11265204-7fc7-43ae-8de7-f32dfef8c61f" width="450"/></td>
+    <td><img src="https://github.com/user-attachments/assets/96625417-aeb9-4acd-abb7-d18b7e318b5c" width="450"/></td>
   </tr>
 </table>
 
