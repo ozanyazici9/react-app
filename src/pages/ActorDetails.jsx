@@ -10,6 +10,7 @@ import { API_BASE_URL } from "../config/env";
 import { API_KEY } from "../config/env";
 import { API_LANGUAGE_EN } from "../config/env";
 import { API_LANGUAGE_TR } from "../config/env";
+import ActorCreditsTable from "../components/ActorCreditsTable";
 
 export default function ActorDetails() {
   const { id } = useParams();
@@ -89,6 +90,7 @@ export default function ActorDetails() {
             }
             getTitle={(item) => item.title || item.name}
           />
+          <ActorCreditsTable credits={actor.combined_credits} />
         </div>
       </div>
       <div className="row">
